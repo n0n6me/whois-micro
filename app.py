@@ -37,6 +37,9 @@ def get_whois(domain):
       org = domain.org,
       registrar = domain.registrar,
       )
+  except whois.parser.PywhoisError as e:
+    return jsonify( query = 'error', error = str(e))
+
   except Exception:
       return make_response('', 500)
 
