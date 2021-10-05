@@ -4,7 +4,7 @@ simple whois api. use https://domain.tld/aaa.tld for getting whois information a
 
 **run from hub.docker.com:**
 
-docker run -d -p 80:80 m0nkeydog/whois:latest
+docker run -d -p 80:80 m0nkeydog/whois-micro:latest
 
 **building from repo:**
 
