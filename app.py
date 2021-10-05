@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask import Flask, jsonify, make_response
 from datetime import date, datetime
 import os
 import whois
@@ -37,8 +37,8 @@ def get_whois(domain):
       org = domain.org,
       registrar = domain.registrar,
       )
-  except whois.parser.PywhoisError:
-    return jsonify( query = "error")
+  except Exception:
+      return make_response('', 500)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
